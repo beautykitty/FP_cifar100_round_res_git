@@ -563,7 +563,7 @@ def cifar100_noniid(args, dataset, num_users, n_list, k_list, classes_list):
         user_data = np.array([])
         for each_class in classes:
             # no random 
-            begin = label_begin[each_class] 
+            begin = i * args.shots + label_begin[each_class] 
             user_data = np.concatenate((user_data, idxs[begin : begin+k]),axis=0)
         dict_users[i] = user_data
         
@@ -604,7 +604,7 @@ def cifar100_noniid_lt(args, test_dataset, num_users, classes_list):
         user_data = np.array([])
         for each_class in classes:
             # no random
-            begin = label_begin[each_class]
+            begin = i*args.test_shots + label_begin[each_class]
             #begin = random.randint(0,90) + label_begin[each_class]
             user_data = np.concatenate((user_data, idxs[begin : begin+k]),axis=0)
         dict_users[i] = user_data
