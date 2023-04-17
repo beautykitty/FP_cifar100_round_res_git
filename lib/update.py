@@ -513,6 +513,8 @@ def test_inference_new_het_wo2(args, local_model_list, test_dataset, classes_lis
     acc_list_l = []
         
     for idx in range(args.num_users):
+        correct = 0 
+        total = 0
         model = local_model_list[idx]
         model.to(args.device)
         testloader = DataLoader(DatasetSplit(test_dataset, user_groups_gt[idx]), batch_size=args.test_shots, shuffle=True)
@@ -562,6 +564,8 @@ def test_inference_new_het_w2(args, local_model_list, test_dataset, classes_list
     loss_list = [] 
     
     for idx in range(args.num_users):
+        correct = 0 
+        total = 0
         model = local_model_list[idx]
         model.to(args.device)
         testloader = DataLoader(DatasetSplit(test_dataset, user_groups_gt[idx]), batch_size=args.test_shots, shuffle=True)
@@ -649,6 +653,8 @@ def test_inference_new_het_wo(args, local_model_list, test_dataset, classes_list
     acc_list_l = []
         
     for idx in range(args.num_users):
+        correct = 0 
+        total = 0
         model = local_model_list[idx]
         model.to(args.device)
         testloader = DataLoader(DatasetSplit(test_dataset, user_groups_gt[idx]), batch_size=args.test_shots, shuffle=True)
@@ -698,6 +704,8 @@ def test_inference_new_het_w(args, local_model_list, test_dataset, classes_list,
     loss_list = [] 
     
     for idx in range(args.num_users):
+        correct = 0 
+        total = 0
         model = local_model_list[idx]
         model.to(args.device)
         testloader = DataLoader(DatasetSplit(test_dataset, user_groups_gt[idx]), batch_size=args.test_shots, shuffle=True)
